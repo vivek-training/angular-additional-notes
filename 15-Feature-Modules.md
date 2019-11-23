@@ -1,0 +1,5 @@
+# Angular 8: Feature Modules
+1.	A feature module is a container of components, directives, pipes, services, and routes, which is business centric. Imagine we build an application for a company with 4 divisions: development, marketing, sales, finance. Then it is logical to have four feature modules each representing a division. These are feature modules as opposed to the root module which is AppModule. Generally, the AppModule acts more or less a container of these feature modules, thus agreeing with modular design of Angular apps. The difference is that root module bootstraps and provides for basic routing.
+2.	We create a feature module by ng g m finance --routing. This will create a finance module with its own routing. The idea is, root module is going to map the base path for the module (such as /finance) and this module will provide internal routes (such as finance/reports/2019).
+3.	Any declarable or providable inside the feature module is not available outside the module unless the feature module exports it explicitly.
+4.	Please refer to the feature-module project (created in the class, not available as repo) for more information.

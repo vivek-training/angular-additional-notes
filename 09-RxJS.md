@@ -1,0 +1,8 @@
+Angular 8: RxJS
+1.	RxJS is the short form for **Reactive Extensions for JavaScript**. The core concept in reactive programming is that of the **Observable**. An observable **encapsulates** an object and creates a stream where the *underlying data comes over time*.
+2.	For example, we can make an array (a straightforward object) as an observable using `of` operator from rxjs. Now, in order to get to this array we need to *flatten* (or cut open) the observable. This is done by subscribing (`observable.subscribe(...)`)to the observable.
+3.	Conventionally, the fields that are observables, are written with `$` suffix, such as `itemCollection$`
+4.	Every observable has the `subscribe` method. We need to pass a callback function (usually a lambda expression). The argument for the callback is the underlying data.
+5.	Observables are *cold*. That means unless we subscribe to them, they do not start their work.
+6.	If we combine the idea of observables and services in Angular, we have a very solid state-management solution.
+7.	In Angular, ideally we avoid subscribing to the observables because the subscription has to be unsubscribed after the view is destroyed. So, at the time of subscription, we get a reference to the *subscription object*, which should be used to `unsubscribe` in the `ngOnDestroy` lifecycle hook (part of `OnDestroy` interface). This is tedious and error-prone. Therefore, as far as possible, we let the template handle automatic subscribe and unsubscribe by using `async` pipe. Please refer to the polling-app project.

@@ -1,0 +1,8 @@
+# Angular 8: Property Binding
+1. As far as the state of the component goes, the first thing that comes handy is declaring the hard-coded values directly in the template. For example, `<h2>Id is: AB1234</h2>`. This is inflexible and defeats the purpose of dynamic nature of the apps.
+2. So, we create the field/s in the component class and use the fields in the template using interpolation. For example: `<h2>Id is: {{ id }}</h2>`.
+3. Even this approach is not very helpful if the component is being used by another parent component. Such fields make the component hard to reuse.
+4. Therefore, in such cases, we would like to **open up** the fields to the outside world so that the parent can supply the data to these fields at the time of usage. In our example, poll-container is the parent and poll-item is the child. So, poll-container will supply essential data for the poll-item (such as imageUrl, title, description, etc) in poll-container template.
+5. To accomplish this, we first need to decorate the fields (in the child component) with @Input(), such as `@Input() item: PollItem;`. Now the poll-container can use `<app-poll-item [item]="expression"></app-poll-item>`.
+6. Please note that `[item]="expression"` is the input property for poll-item (child component). Square brackets are used because, we are passing an expression, not a hard-coded value. Usually, this expression is a field declared in the parent component or something that a method in the parent TS class returns. Basically, the expression is evaluated.
+7. It is a good practice to use as few input properties as possible. If possible, group the input properties with a model class (such as PollItem model class).

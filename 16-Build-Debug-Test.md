@@ -1,0 +1,6 @@
+# Angular 8: Build, Debug, Test, etc
+1.	Angular is built using ng build. This default build uses JIT. To make it an AOT build use, ng build --aot
+2.	Production build is done using ng build --prod which AOT by default
+3.	Angular apps are debugged in the browser using chrome tools. Look for Sources > Webpack > . this will give you a mapping of Angular components to actual DOM that is rendered. You can place a breakpoint and debug the application. Please remember, this option is provided by .map files, which will not be emited in the production builds. If you want to debug, make sure, you are in ng serve
+4.	In order to execute the test runner, you use ng test which will in turn execute the Karma test runner. Angular uses Jasmine test framework. By default, every class (component, directive, etc) have .spec.ts file which is a unit test file. Please refer to Jasmine documentation [https://jasmine.github.io/](https://jasmine.github.io/) for more information.
+5.	End-to-end testing in Angular is done using protractor. This is run by ng e2e. Please refer to [https://www.protractortest.org/#/](https://www.protractortest.org/#/) for more information
